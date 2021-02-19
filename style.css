@@ -1,0 +1,172 @@
+ :root {
+  --page-1-color:rgba(255, 193, 182, 0.3);
+  /* --page-2-color:rgba(247, 188, 130, 0.8);; */
+  --page-3-color:rgba(255, 238, 187, 0.3);;
+  --primary-color:rgba(46, 14, 21, 0.4);
+  --secondary-color:rgba(76, 52, 58, 0.2);
+  --overlay-color:rgba(76, 52, 58, 0.8);
+  --animation-speed: 1s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Newsreader, sans-serif;
+  line-height: 1.4;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* colors */
+#page-1 {background: var(--page-1-color);}
+#page-2 {background: var(--page-2-color);}
+#page-3 {background: var(--page-3-color);}
+
+/* page */
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+}
+
+.page h1 {
+  font-size: 5rem;
+  line-height: 1.2;
+  margin: 0.5rem;
+  font-weight: 200;
+}
+
+#page-1 h1 {
+  padding-top: 7rem;
+}
+
+#page-2 h1,
+#page-2 h3 {
+  color: #333;
+}
+
+#page-2 h3 {
+  margin-top: 0;
+}
+
+.page p {
+  font-size: 1.5rem;
+  width: 70%;
+  font-weight: 130;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 1rem;
+  background: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  border-radius: 70%;
+  margin-top: 0.7rem;
+  font-size: 1.1rem;
+  transition: all 0.7s ease-in-out;
+}
+
+#page-1 .btn {
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  border-top-right-radius:3px;
+}
+
+.btn:hover,
+.btn-dark {
+  background:#333;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background:#fff;
+  color: #333;
+}
+
+/* page animation */
+#page-1 h1{
+  transform: translateY(-1200px);
+  /* forwards для того, чтобы при исполнении оно же на месте и осталось */
+  /* animation-fill-mode: forwards; это же внизу */
+  animation: heading1 var(--animation-speed) forwards ease-in;
+}
+@keyframes heading1 {
+  to {
+  transform: translateY(0px);}
+}
+
+#page-1 p {
+  transform:translateX(-5000px);
+  animation: par1 var(--animation-speed) forwards ease-in 0.5s;
+}
+@keyframes par1 {
+  to{
+    transform:translateX(0px);
+  }
+}
+
+
+
+
+/* NEW!!! */
+
+#page-1,#page-2,#page-3,#page-4{
+  position: relative;
+}
+
+#page-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(start.jpg) no-repeat center center/cover;
+  z-index: -1;
+}
+
+#page-3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(end.jpg) no-repeat center center/cover;
+  z-index: -1;
+}
+
+.outline{
+  color: #fff;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+
+.items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+
+.items figcaption {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
